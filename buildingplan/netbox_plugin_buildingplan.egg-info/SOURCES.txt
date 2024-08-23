@@ -1,0 +1,7 @@
+setup.py
+migrations/__init__.py
+netbox_plugin_buildingplan.egg-info/PKG-INFO
+netbox_plugin_buildingplan.egg-info/SOURCES.txt
+netbox_plugin_buildingplan.egg-info/dependency_links.txt
+netbox_plugin_buildingplan.egg-info/not-zip-safe
+netbox_plugin_buildingplan.egg-info/top_level.txt

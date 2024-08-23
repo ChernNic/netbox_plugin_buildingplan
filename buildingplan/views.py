@@ -7,7 +7,7 @@ from tenancy.models import Tenant
 from utilities.views import ViewTab, register_model_view
 from .models import BuildingPlan
 from .forms import BuildingPlanForm
-
+import random
 
 @register_model_view(Tenant, name="building-plan-tab")
 class BuildingPlanTabView(PermissionRequiredMixin, View):
@@ -70,3 +70,17 @@ class BuildingPlanDeleteView(PermissionRequiredMixin, DeleteView):
 
     def get_success_url(self):
         return reverse('plugins:netbox_plugin_buildingplan:building-plan-tab', kwargs={'pk': self.kwargs['pk']})
+
+
+class BuildingPlanListView(PermissionRequiredMixin, View):
+    permission_required = "tenancy.view_tenant"
+
+    def get(self, request):
+        building_plans = BuildingPlan.objects.all()
+        return render(
+            request,
+            "netbox_plugin_buildingplan/building_plan_list.html",
+            context={
+                "building_plans": building_plans,
+            },
+        )
